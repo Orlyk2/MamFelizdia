@@ -2,21 +2,17 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>💖 Feliz Día Mamita 💖</title>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -30,7 +26,8 @@
       color:#333;
     }
 
-    /* CORAZONES FLOTANTES */
+    /* CORAZONES */
+
     .hearts{
       position:fixed;
       width:100%;
@@ -45,12 +42,13 @@
     .heart{
       position:absolute;
       bottom:-50px;
-      color:rgba(255,0,85,0.4);
+      color:rgba(255,255,255,0.7);
       animation:float 8s linear infinite;
       font-size:25px;
     }
 
     @keyframes float{
+
       0%{
         transform:translateY(0) scale(0);
         opacity:0;
@@ -64,29 +62,60 @@
         transform:translateY(-120vh) scale(1.5);
         opacity:0;
       }
+
     }
 
-    /* ENCABEZADO */
+    /* HERO PRINCIPAL */
+
     .hero{
+      position:relative;
       min-height:100vh;
       display:flex;
-      flex-direction:column;
       justify-content:center;
       align-items:center;
-      text-align:center;
-      padding:40px;
-      position:relative;
-      z-index:2;
+      overflow:hidden;
     }
 
-    .hero h1{
-      font-size:70px;
-      color:#d6004c;
-      text-shadow:0 5px 15px rgba(0,0,0,0.2);
+    /* FOTO DE TU MAMÁ */
+
+    .hero-bg{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background-image:url('https://raw.githubusercontent.com/Orlyk2/MamFelizdia/12eee46913e8ddd519d092e199ae2aff7841891e/IMG_20260510_122325.jpg');
+      background-size:cover;
+      background-position:center;
+      filter:blur(2px);
+      transform:scale(1.05);
+    }
+
+    /* CAPA OSCURA */
+
+    .overlay{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.35);
+    }
+
+    /* CONTENIDO HERO */
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      padding:40px;
+      color:white;
+    }
+
+    .hero-content h1{
+      font-size:80px;
+      text-shadow:0 5px 20px rgba(0,0,0,0.5);
       animation:pulse 2s infinite;
     }
 
     @keyframes pulse{
+
       0%{
         transform:scale(1);
       }
@@ -98,23 +127,26 @@
       100%{
         transform:scale(1);
       }
+
     }
 
-    .hero p{
+    .hero-content p{
       margin-top:30px;
-      font-size:28px;
-      max-width:900px;
-      line-height:1.7;
+      font-size:30px;
+      line-height:1.8;
+      max-width:950px;
       font-weight:500;
+      text-shadow:0 3px 10px rgba(0,0,0,0.5);
     }
 
     .emoji{
-      font-size:60px;
-      margin-top:30px;
+      font-size:65px;
+      margin-top:35px;
       animation:bounce 2s infinite;
     }
 
     @keyframes bounce{
+
       0%,100%{
         transform:translateY(0);
       }
@@ -122,9 +154,11 @@
       50%{
         transform:translateY(-15px);
       }
+
     }
 
-    /* TARJETA MENSAJE */
+    /* MENSAJE */
+
     .message{
       width:90%;
       max-width:1200px;
@@ -133,14 +167,15 @@
       border-radius:35px;
       padding:60px;
       box-shadow:0 15px 40px rgba(0,0,0,0.15);
-      margin-bottom:80px;
+      margin-top:80px;
+      margin-bottom:90px;
       position:relative;
       z-index:2;
     }
 
     .message h2{
       text-align:center;
-      font-size:45px;
+      font-size:48px;
       color:#d6004c;
       margin-bottom:40px;
     }
@@ -152,6 +187,7 @@
     }
 
     /* TARJETAS */
+
     .cards{
       width:90%;
       max-width:1300px;
@@ -193,35 +229,83 @@
       line-height:1.8;
     }
 
-    /* VIDEO */
-    .video-section{
+    /* VIDEOS */
+
+    .video-gallery{
       width:90%;
-      max-width:1200px;
+      max-width:1400px;
       margin:auto;
-      background:white;
-      padding:50px;
-      border-radius:35px;
-      box-shadow:0 15px 40px rgba(0,0,0,0.15);
-      margin-bottom:100px;
+      margin-bottom:120px;
       text-align:center;
       position:relative;
       z-index:2;
     }
 
-    .video-section h2{
-      font-size:45px;
+    .video-gallery h2{
+      font-size:50px;
       color:#d6004c;
-      margin-bottom:30px;
+      margin-bottom:20px;
     }
 
-    iframe{
+    .video-text{
+      font-size:24px;
+      margin-bottom:50px;
+      color:#444;
+    }
+
+    .videos-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:35px;
+    }
+
+    .video-card{
+      background:white;
+      padding:25px;
+      border-radius:35px;
+      box-shadow:0 15px 35px rgba(0,0,0,0.15);
+      transition:0.4s;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .video-card:hover{
+      transform:translateY(-10px) scale(1.03);
+    }
+
+    .video-card::before{
+      content:'💖';
+      position:absolute;
+      top:15px;
+      right:20px;
+      font-size:30px;
+      animation:pulse 2s infinite;
+    }
+
+    .video-title{
+      font-size:28px;
+      font-weight:bold;
+      color:#d6004c;
+      margin-bottom:20px;
+    }
+
+    .video-card video{
       width:100%;
       height:600px;
-      border:none;
+      object-fit:cover;
       border-radius:25px;
+      margin-bottom:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
     }
 
-    /* GALERIA */
+    .video-card p{
+      font-size:20px;
+      line-height:1.8;
+      color:#555;
+    }
+
+    /* GALERÍA */
+
     .gallery{
       width:90%;
       max-width:1300px;
@@ -248,6 +332,7 @@
     }
 
     /* FOOTER */
+
     footer{
       text-align:center;
       padding:80px 20px;
@@ -271,13 +356,14 @@
     }
 
     /* RESPONSIVE */
+
     @media(max-width:768px){
 
-      .hero h1{
+      .hero-content h1{
         font-size:45px;
       }
 
-      .hero p{
+      .hero-content p{
         font-size:20px;
       }
 
@@ -293,8 +379,16 @@
         font-size:20px;
       }
 
-      iframe{
-        height:300px;
+      .video-gallery h2{
+        font-size:35px;
+      }
+
+      .video-text{
+        font-size:18px;
+      }
+
+      .video-card video{
+        height:400px;
       }
 
       footer h2{
@@ -302,13 +396,17 @@
       }
 
     }
+
   </style>
+
 </head>
 
 <body>
 
   <!-- CORAZONES -->
+
   <div class="hearts">
+
     <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
     <div class="heart" style="left:20%; animation-delay:2s;">💖</div>
     <div class="heart" style="left:35%; animation-delay:4s;">🌸</div>
@@ -316,32 +414,44 @@
     <div class="heart" style="left:65%; animation-delay:3s;">💐</div>
     <div class="heart" style="left:80%; animation-delay:5s;">❤️</div>
     <div class="heart" style="left:90%; animation-delay:6s;">🌹</div>
+
   </div>
 
   <!-- HERO -->
+
   <section class="hero">
 
-    <h1>🌷 Feliz Día Mamita 🌷</h1>
+    <div class="hero-bg"></div>
 
-    <p>
-      Para la mujer más luchadora, trabajadora y maravillosa del mundo 💖
-      <br><br>
-      Gracias por todo tu amor, tus sacrificios y por nunca rendirte.
-    </p>
+    <div class="overlay"></div>
 
-    <div class="emoji">
-      ❤️ 💕 🌸 💐
+    <div class="hero-content">
+
+      <h1>🌷 Feliz Día Mamita 🌷</h1>
+
+      <p>
+        Para la mujer más luchadora, trabajadora y maravillosa del mundo 💖
+        <br><br>
+        Gracias por todo tu amor, tus sacrificios y por nunca rendirte.
+      </p>
+
+      <div class="emoji">
+        ❤️ 💕 🌸 💐 👑
+      </div>
+
     </div>
 
   </section>
 
   <!-- MENSAJE -->
+
   <section class="message">
 
     <h2>✨ Un Mensaje Para Ti Mamita ✨</h2>
 
     <p>
-      Mamita hermosa 💖
+
+    
       <br><br>
 
       Hoy quiero recordarte lo increíble que eres.
@@ -364,14 +474,17 @@
       <br><br>
 
       🌹 Te amo infinitamente mamita 🌹
+
     </p>
 
   </section>
 
   <!-- TARJETAS -->
+
   <section class="cards">
 
     <div class="card">
+
       <div class="icon">💖</div>
 
       <h3>Amor Infinito</h3>
@@ -379,9 +492,11 @@
       <p>
         Tu amor siempre ha sido el refugio más hermoso de mi vida.
       </p>
+
     </div>
 
     <div class="card">
+
       <div class="icon">🌸</div>
 
       <h3>Mujer Luchadora</h3>
@@ -389,9 +504,11 @@
       <p>
         Nunca te rendiste y siempre diste lo mejor por tu familia.
       </p>
+
     </div>
 
     <div class="card">
+
       <div class="icon">👑</div>
 
       <h3>Nuestra Reina</h3>
@@ -399,38 +516,99 @@
       <p>
         Porque mereces todo el reconocimiento y amor del mundo.
       </p>
+
     </div>
 
   </section>
 
-  <!-- VIDEO -->
-  <section class="video-section">
+  <!-- VIDEOS -->
 
-    <h2>🎥 Video Especial 🎥</h2>
+  <section class="video-gallery">
 
-    <p style="font-size:22px; margin-bottom:30px;">
-      Puedes reemplazar este video por uno familiar o una canción especial.
+
     </p>
 
-    <iframe
-      src="https://www.youtube.com/embed/oRdxUFDoQe0"
-      allowfullscreen>
-    </iframe>
+    <div class="videos-container">
+
+      <!-- VIDEO 1 -->
+
+      <div class="video-card">
+
+        <div class="video-title">
+          🌸 Feliz Día Mamita 🌸
+        </div>
+
+        <video controls autoplay muted loop>
+
+          <source
+            src="https://raw.githubusercontent.com/Orlyk2/MamFelizdia/2a6e821787d20b1ca3931dab2fc443825c77b758/mama-lucchetti-feliz-dia-mama-diadelamadre2022-ytshorts.savetube.vip.mp4"
+            type="video/mp4">
+
+        </video>
+
+        <p>
+          Gracias por estar siempre conmigo en cada momento de mi vida ❤️
+        </p>
+
+      </div>
+
+      <!-- VIDEO 2 -->
+
+      <div class="video-card">
+
+        <div class="video-title">
+          💕 Eres Mi Inspiración 💕
+        </div>
+
+        <video controls autoplay muted loop>
+
+          <source
+            src="https://raw.githubusercontent.com/Orlyk2/MamFelizdia/2a6e821787d20b1ca3931dab2fc443825c77b758/videoplayback%20(2).mp4"
+            type="video/mp4">
+
+        </video>
+
+        <p>
+          Tu fuerza y amor me enseñaron a nunca rendirme 🌹
+        </p>
+
+      </div>
+
+      <!-- VIDEO 3 -->
+
+      <div class="video-card">
+
+        <div class="video-title">
+          👑 La Mejor Mamá Del Mundo 👑
+        </div>
+
+        <video controls autoplay muted loop>
+
+          <source
+            src="https://raw.githubusercontent.com/Orlyk2/MamFelizdia/2a6e821787d20b1ca3931dab2fc443825c77b758/videoplayback.mp4"
+            type="video/mp4">
+
+        </video>
+
+        <p>
+          Mereces toda la felicidad y amor del universo 💐
+        </p>
+
+      </div>
+
+    </div>
 
   </section>
 
-  <!-- GALERIA -->
+  <!-- GALERÍA -->
+
   <section class="gallery">
 
-    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop">
-
-    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1200&auto=format&fit=crop">
-
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop">
 
   </section>
 
   <!-- FOOTER -->
+
   <footer>
 
     <h2>
@@ -448,4 +626,5 @@
   </footer>
 
 </body>
+
   </html>
